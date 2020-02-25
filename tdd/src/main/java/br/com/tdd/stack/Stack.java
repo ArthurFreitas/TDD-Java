@@ -11,13 +11,19 @@ public final class Stack {
 
 	public boolean isEmpty() {
 		return this.count == 0;
-	}
+    }
+    
+    public boolean isFull(){
+        return this.count == elements.length;
+    }
 
 	public int size() {
 		return this.count;
 	}
 
 	public void push(Object e) {
+        if(isFull())
+            throw new FullStackException("The stack is full");
         this.elements[this.count] = e;
         this.count ++;
     }
@@ -27,6 +33,8 @@ public final class Stack {
     }
 
 	public Object pop() {
+        if(isEmpty())
+            throw new EmptyStackException("The stack is empty");
         Object topElement = peek();
         this.count --;
         return topElement;
