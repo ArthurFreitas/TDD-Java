@@ -4,11 +4,11 @@ public final class Stack {
     private Object[] elements;
     private int count;
 
-    public Stack() {
+	public Stack(int maxSize) {
         this.count = 0;
-        this.elements = new Object[10];
-    }
-    
+        elements = new Object[maxSize];
+	}
+
 	public boolean isEmpty() {
 		return this.count == 0;
 	}
