@@ -7,36 +7,36 @@ public final class Stack {
 	public Stack(int maxSize) {
         this.count = 0;
         elements = new Object[maxSize];
-	}
-
-	public boolean isEmpty() {
-		return this.count == 0;
     }
     
-    public boolean isFull(){
-        return this.count == elements.length;
-    }
-
-	public int size() {
-		return this.count;
-	}
-
-	public void push(Object e) {
+    public void push(Object e) {
         if(isFull())
             throw new FullStackException("The stack is full");
         this.elements[this.count] = e;
         this.count ++;
     }
-    
-    public Object peek(){
-        return this.elements[this.count -1];
+
+    public boolean isFull(){
+        return this.count == elements.length;
     }
 
-	public Object pop() {
+    public Object pop() {
         if(isEmpty())
             throw new EmptyStackException("The stack is empty");
         Object topElement = peek();
         this.count --;
         return topElement;
+	}
+
+	public boolean isEmpty() {
+		return this.count == 0;
+    }
+
+    public Object peek(){
+        return this.elements[this.count -1];
+    }
+
+	public int size() {
+		return this.count;
 	}
 }
