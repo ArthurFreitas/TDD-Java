@@ -65,4 +65,9 @@ public class CamelCaseProcessorTest{
     public void breakStringStartingWithNumbers(){
         CamelCaseProcessor.breakCamelCaseString("10Primeiros");
     }
+
+    @Test(expected = StringHasInvalidCharacterException.class)
+    public void breakStringWithSpecialCharacters(){
+        CamelCaseProcessor.breakCamelCaseString("nome#Composto");
+    }
 }

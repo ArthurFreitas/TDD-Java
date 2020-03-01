@@ -8,11 +8,15 @@ public class CamelCaseProcessor {
     private static final String lookBehindUpperCaseRegex = "(?<!(^|[A-Z0-9]))(?=[A-Z0-9])|(?<!^)(?=[A-Z0-9][a-z])";
     private static final String moreThanOneUpperCaseRegex = "[A-Z]{2,}";
     private static final String startsWithNumberRegex = "[0-9].*";
+    private static final String hasSpecialCharacterRegex = ".*[^a-zA-Z0-9].*";
     
     public static List<String> breakCamelCaseString(String source){
         if(startsWithNumber(source))
-            throw new StringStartsWithANumberException("Invalid String. Should not start with a number.");
-            
+            throw new StringStartsWithANumberException("Invalid String. Should not start with a number");
+        
+        if(hasSpecialCharacter(source))
+            throw new StringHasInvalidCharacterException("Invalid String. Should not have special characters, only letters and numbers");
+
         List<String> brokenStrings = 
                 Arrays.asList(source.split(lookBehindUpperCaseRegex));
         brokenStrings = brokenStrings.stream()
@@ -35,5 +39,9 @@ public class CamelCaseProcessor {
 
     private static Boolean startsWithNumber(String s){
         return s.matches(startsWithNumberRegex);
+    }
+
+    private static Boolean hasSpecialCharacter(String s){
+        return s.matches(hasSpecialCharacterRegex);
     }
 }
