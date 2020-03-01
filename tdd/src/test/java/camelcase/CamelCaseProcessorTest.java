@@ -38,5 +38,28 @@ public class CamelCaseProcessorTest{
         assertEquals("CPF", processedStrings.get(0));
     }
 
+    @Test
+    public void breakTwoWordsOneFullyUpperCase(){
+        List<String> processedStrings = CamelCaseProcessor.breakCamelCaseString("numeroCPF");
+        assertEquals("numero", processedStrings.get(0));
+        assertEquals("CPF", processedStrings.get(1));
+    }
+
+    @Test
+    public void breakThreeDistinctCasedWords(){
+        List<String> processedStrings = CamelCaseProcessor.breakCamelCaseString("numeroCPFContribuinte");
+        assertEquals("numero", processedStrings.get(0));
+        assertEquals("CPF", processedStrings.get(1));
+        assertEquals("contribuinte", processedStrings.get(2));
+    }
+
+    @Test
+    public void breakCamelCasedWordsWithNumbers(){
+        List<String> processedStrings = CamelCaseProcessor.breakCamelCaseString("recupera10Primeiros");
+        assertEquals("recupera", processedStrings.get(0));
+        assertEquals("10", processedStrings.get(1));
+        assertEquals("primeiros", processedStrings.get(2));
+    }
+
 
 }
