@@ -17,4 +17,11 @@ public class CamelCaseProcessorTest{
         List<String> processedStrings = CamelCaseProcessor.breakCamelCaseString("Nome");
         assertEquals("nome", processedStrings.get(0)); 
     }
+
+    @Test
+    public void breakSimpleCamelCaseString(){
+        List<String> processedStrings = CamelCaseProcessor.breakCamelCaseString("nomeComposto");
+        assertEquals("nome", processedStrings.get(0));
+        assertEquals("composto", processedStrings.get(1)); 
+    }
 }
