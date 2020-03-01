@@ -7,34 +7,36 @@ import java.util.List;
 
 public class CamelCaseProcessorTest{
     @Test
-    public void breakSimpleLowerCaseString(){
+    public void breakALowerCaseWord(){
         List<String> processedStrings = CamelCaseProcessor.breakCamelCaseString("nome");
         assertEquals("nome", processedStrings.get(0));
     }
 
     @Test
-    public void breakSimpleCapitalizedString(){
+    public void breakACapitalizedWord(){
         List<String> processedStrings = CamelCaseProcessor.breakCamelCaseString("Nome");
         assertEquals("nome", processedStrings.get(0)); 
     }
 
     @Test
-    public void breakSimpleCamelCaseString(){
+    public void breakACamelCasedWord(){
         List<String> processedStrings = CamelCaseProcessor.breakCamelCaseString("nomeComposto");
         assertEquals("nome", processedStrings.get(0));
         assertEquals("composto", processedStrings.get(1)); 
     }
 
     @Test
-    public void breakDoubleCamelCaseString(){
+    public void breakTwoCamelCasedWords(){
         List<String> processedStrings = CamelCaseProcessor.breakCamelCaseString("NomeComposto");
         assertEquals("nome", processedStrings.get(0));
         assertEquals("composto", processedStrings.get(1)); 
     }
 
     @Test
-    public void breakFullyUpperCaseString(){
+    public void breakAFullyUpperCaseWord(){
         List<String> processedStrings = CamelCaseProcessor.breakCamelCaseString("CPF");
         assertEquals("CPF", processedStrings.get(0));
     }
+
+
 }
