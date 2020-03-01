@@ -1,4 +1,4 @@
-package br.com.tdd.stack;
+package stack;
 
 public final class Stack {
     private Object[] elements;

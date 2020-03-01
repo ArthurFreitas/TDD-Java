@@ -1,4 +1,4 @@
-package br.com.tdd.camelcase;
+package camelcase;
 
 import org.junit.*;
 import static org.junit.Assert.*;

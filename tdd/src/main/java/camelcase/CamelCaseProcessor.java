@@ -1,4 +1,4 @@
-package br.com.tdd.camelcase;
+package camelcase;
 
 import java.util.ArrayList;
 import java.util.List;

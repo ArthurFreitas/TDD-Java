@@ -1,4 +1,4 @@
-package br.com.tdd.stack;
+package stack;
 
 import org.junit.*;
 import static org.junit.Assert.*;

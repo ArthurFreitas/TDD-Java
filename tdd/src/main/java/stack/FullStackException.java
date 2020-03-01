@@ -1,4 +1,4 @@
-package br.com.tdd.stack;
+package stack;
 
 public class FullStackException extends RuntimeException{
     public FullStackException(String msg) {

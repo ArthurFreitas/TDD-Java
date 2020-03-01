@@ -1,4 +1,4 @@
-package br.com.tdd.stack;
+package stack;
 
 public class EmptyStackException extends RuntimeException{
     public EmptyStackException(String msg) {
