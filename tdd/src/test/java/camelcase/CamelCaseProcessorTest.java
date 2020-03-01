@@ -11,4 +11,10 @@ public class CamelCaseProcessorTest{
         List<String> processedStrings = CamelCaseProcessor.breakCamelCaseString("nome");
         assertEquals("nome", processedStrings.get(0));
     }
+
+    @Test
+    public void breakSimpleCapitalizedString(){
+        List<String> processedStrings = CamelCaseProcessor.breakCamelCaseString("Nome");
+        assertEquals("nome", processedStrings.get(0)); 
+    }
 }
