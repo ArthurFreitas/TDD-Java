@@ -61,5 +61,8 @@ public class CamelCaseProcessorTest{
         assertEquals("primeiros", processedStrings.get(2));
     }
 
-
+    @Test(expected = StringStartsWithANumberException.class)
+    public void breakStringStartingWithNumbers(){
+        CamelCaseProcessor.breakCamelCaseString("10Primeiros");
+    }
 }
