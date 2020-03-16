@@ -11,17 +11,23 @@ import static org.junit.Assert.*;
 // Traduzir Frase
 
 public class TranslatorTest{
-    @Test
-    public void translateNoWords(){
-        Translator t = new Translator();
-        assertTrue(t.isEmpty());
+    private Translator t;
+
+    @Before
+    public void setup(){
+        this.t = new Translator();
     }
 
     @Test
-    public void translateOneWord(){
-        Translator t = new Translator();
+    public void translateNoWords(){
+        assertFalse(t.hasTranslations());
+    }
+
+    @Test
+    public void translateOneWord(){        
         t.addTranslation("bom", "good");
-        assertFalse(t.isEmpty());
+
+        assertTrue(t.hasTranslations());
         assertEquals("good", t.translate("bom"));
     }
 }
