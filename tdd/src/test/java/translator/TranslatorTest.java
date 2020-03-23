@@ -47,4 +47,13 @@ public class TranslatorTest{
 
         assertEquals("good, nice", t.translate("bom"));
     }
+
+    @Test
+    public void translatePhrase(){
+        t.addTranslation("bom", "good");
+        t.addTranslation("e", "and");
+        t.addTranslation("mau", "bad");
+
+        assertEquals("good and bad", t.translatePhrase("bom e mau"));
+    }
 }

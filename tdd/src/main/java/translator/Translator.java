@@ -1,7 +1,9 @@
 package translator;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Translator {
 
@@ -23,5 +25,11 @@ public class Translator {
 
 	public String translate(String word) {
 		return this.translations.get(word);
+	}
+
+	public String translatePhrase(String phrase) {
+		return Arrays.stream(phrase.split(" "))
+			.map(w -> translate(w))
+			.collect(Collectors.joining(" "));
 	}
 }
