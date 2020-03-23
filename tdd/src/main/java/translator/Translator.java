@@ -1,18 +1,25 @@
 package translator;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Translator {
 
-    private String translation;
+	private Map<String,String> translations;
+	
+	public Translator() {
+		translations = new HashMap<>();
+	}
 
 	public boolean hasTranslations() {
-		return translation != null;
+		return !this.translations.isEmpty();
 	}
 
 	public void addTranslation(String portugueseWord, String englishTranslation) {
-        this.translation = englishTranslation;
+        this.translations.put(portugueseWord, englishTranslation);
 	}
 
-	public Object translate(String portugueseWord) {
-		return translation;
+	public String translate(String portugueseWord) {
+		return this.translations.get(portugueseWord);
 	}
 }

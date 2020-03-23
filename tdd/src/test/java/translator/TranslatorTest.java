@@ -30,4 +30,13 @@ public class TranslatorTest{
         assertTrue(t.hasTranslations());
         assertEquals("good", t.translate("bom"));
     }
+
+    @Test
+    public void translateTwoWords(){
+        t.addTranslation("bom", "good");
+        t.addTranslation("mau", "bad");
+
+        assertEquals("good", t.translate("bom"));
+        assertEquals("bad", t.translate("mau"));
+    }
 }
