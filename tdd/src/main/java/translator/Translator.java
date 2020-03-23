@@ -29,7 +29,12 @@ public class Translator {
 
 	public String translatePhrase(String phrase) {
 		return Arrays.stream(phrase.split(" "))
-			.map(w -> translate(w))
+			.map(w -> getFirstTranslation(w))
 			.collect(Collectors.joining(" "));
+	}
+
+	private String getFirstTranslation(String word){
+		String translation = translate(word);
+		return translation.split(", ")[0];
 	}
 }
