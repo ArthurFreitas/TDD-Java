@@ -39,4 +39,12 @@ public class TranslatorTest{
         assertEquals("good", t.translate("bom"));
         assertEquals("bad", t.translate("mau"));
     }
+
+    @Test
+    public void TwoTranslationsSameWord(){
+        t.addTranslation("bom", "good");
+        t.addTranslation("bom", "nice");
+
+        assertEquals("good, nice", t.translate("bom"));
+    }
 }

@@ -16,7 +16,9 @@ public class Translator {
 	}
 
 	public void addTranslation(String portugueseWord, String englishTranslation) {
-        this.translations.put(portugueseWord, englishTranslation);
+		if(this.translations.containsKey(portugueseWord))
+			englishTranslation = this.translations.get(portugueseWord) + ", " + englishTranslation; 
+		this.translations.put(portugueseWord, englishTranslation);
 	}
 
 	public String translate(String portugueseWord) {
